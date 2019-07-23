@@ -69,12 +69,12 @@
                     </tr>
                 </thead>
                 <tbody >
-                        <tr>
+                        <tr class='table_input'>
                                 <th>№</th>
-                                <td><input type="text" class="form-control input" v-model='newUser.name' name='name'></td>
-                                <td><input type="text" class="form-control input" v-model='newUser.surname' name='surname'></td>
-                                <td><input type="text" class="form-control input" v-model='newUser.phone' name='phone'></td>
-                                <td><input type="text" class="form-control input" v-model='newUser.email' name='email'></td>
+                                <td><input type="text" class="form-control input" v-model='newUser.name' name='name' placeholder="Name" ></td>
+                                <td><input type="text" class="form-control input" v-model='newUser.surname' name='surname'  placeholder="Surname" ></td>
+                                <td><input type="text" class="form-control input" v-model='newUser.phone' name='phone'  placeholder="Phone" ></td>
+                                <td><input type="text" class="form-control input" v-model='newUser.email' name='email' placeholder="Email" ></td>
                                 <td>
                                     <button class="btn btn-outline-success" @click='addUser'>+Add User</button>
                                 </td>

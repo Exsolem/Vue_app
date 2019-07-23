@@ -12,7 +12,7 @@ let app = new Vue({
             { name: 'Evgeniy', surname: 'Jenkov', phone: '+380349817465', email: 'Jenkov@mail.com' },
             { name: 'Alexander', surname: 'Kartoshkin', phone: '+380349817445', email: 'Kartoshkin@mail.com' }
         ],
-        newUser: { name: 'Name', surname: 'Surname', phone: 'Phone', email: 'Email' },
+        newUser: { name: '', surname: '', phone: '', email: '' },
         pageFlag: true,
         JSONinput:''
     },
@@ -26,8 +26,11 @@ let app = new Vue({
             this.pageFlag = !this.pageFlag;
         },
         addUser(e) {
-            this.users = [].concat(this.newUser).concat(this.users);
-            localStorage.setItem('users', JSON.stringify(this.users));
+            if(this.newUser.name != '' && this.newUser.phone != '' && this.newUser.surname != '' && this.newUser.email != ''){
+                this.users = [].concat(this.newUser).concat(this.users);
+                localStorage.setItem('users', JSON.stringify(this.users));
+            }
+            else alert('All fields required!')
 
         },
         editUser() {
