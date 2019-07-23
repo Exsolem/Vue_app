@@ -1,0 +1,42 @@
+body {
+    background-color: #343a40;
+}
+
+button {
+    text-transform: capitalize;
+}
+
+.input {
+    background-color: #343a40;
+    color: rgb(202, 196, 196);
+    font-size: 2.5vmin;
+    transition: background-color 350ms ease;
+}
+
+.h1 {
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding-bottom: 1vh;
+}
+
+.mb-3 {
+    padding: 1vw;
+}
+
+.button_wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin: 1vmin;
+}
+
+.showPage_btn {
+    position: absolute;
+    top: 1vh;
+    right: 1vw;
+}
+
+table {
+    font-size: 2.5vmin;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <link rel="stylesheet" href="./bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <template v-if='pageFlag'>
+        <h1 class="h1 display-3">Users List</h1>
+        <div class='button_wrapper'>
+            <button class="btn btn-outline-success" @click='pageChange'>+add user</button>
+            <button class="btn btn-outline-light" @click='pageChange'>page change</button>
+        </div>
+        <table class="table table-hover table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th scope='col'>#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Surname</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Instruments</th>
+                </tr>
+            </thead>
+            <tbody v-for='(user,index) in users'>
+                <tr>
+                    <th>{{index+1}}</th>
+                    <td>{{user.name}}</td>
+                    <td>{{user.surname}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.email}}</td>
+                    <td>
+                        <button class="btn btn-outline-primary" @click='pageChange'>edit</button>
+                        <button class='btn btn-outline-danger' @click='userDelete(index)'>delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+
+        <template v-else>
+        <h1 class="h1 display-3">Users Editor</h1>
+        <button class="btn btn-outline-light showPage_btn" @click='pageChange'>page change</button>
+        <div class="input-group mb-3">
+                <input type="text" v-model='JSONinput' class="form-control input" placeholder="JSON input" />
+                <div class="input-group-append">
+                  <button class="btn btn-outline-light" type="button" @click='JSONparse'>parse</button>
+                </div>
+        </div>>
+        <table class=" table table-hover table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th scope='col'>#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Surname</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Instruments</th>
+                    </tr>
+                </thead>
+                <tbody >
+                        <tr>
+                                <th>№</th>
+                                <td><input type="text" class="form-control input" v-model='newUser.name' name='name'></td>
+                                <td><input type="text" class="form-control input" v-model='newUser.surname' name='surname'></td>
+                                <td><input type="text" class="form-control input" v-model='newUser.phone' name='phone'></td>
+                                <td><input type="text" class="form-control input" v-model='newUser.email' name='email'></td>
+                                <td>
+                                    <button class="btn btn-outline-success" @click='addUser'>+Add User</button>
+                                </td>
+                            </tr>
+                    <tr v-for='(user,index) in users'>
+                        <th>{{index+1}}</th>
+                        <td><input type="text" class="form-control input" v-model='user.name'></td>
+                        <td><input type="text" class="form-control input" v-model='user.surname'></td>
+                        <td><input type="text" class="form-control input" v-model='user.phone'></td>
+                        <td><input type="text" class="form-control input" v-model='user.email'></td>
+                        <td>
+                            <button class="btn btn-outline-primary" @click='pageChange'>edit</button>
+                            <button class="btn btn-outline-danger" @click='userDelete(index)'>delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </template>
+    </div>
+</body>
+<script src="./script.js"></script>
+
+</html>
