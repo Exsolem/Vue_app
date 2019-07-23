@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>Vue app</title>
         <script src="./vue.js"></script>
         <link rel="stylesheet" href="./bootstrap-4.3.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="./style.css">
@@ -40,7 +40,7 @@
                     <td>{{user.phone}}</td>
                     <td>{{user.email}}</td>
                     <td>
-                        <button class="btn btn-outline-primary" @click='pageChange'>edit</button>
+                        <button class="btn btn-outline-info" @click='pageChange'>edit</button>
                         <button class='btn btn-outline-danger' @click='userDelete(index)'>delete</button>
                     </td>
                 </tr>
@@ -51,12 +51,12 @@
             <template v-else>
         <h1 class="h1 display-3">Users Editor</h1>
         <button class="btn btn-outline-light showPage_btn" @click='pageChange'>page change</button>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 json_input_wrapper">
                 <input type="text" v-model='JSONinput' class="form-control input" placeholder="JSON input" />
                 <div class="input-group-append">
                   <button class="btn btn-outline-light" type="button" @click='JSONparse'>parse</button>
                 </div>
-        </div>>
+        </div>
         <table class=" table table-hover table-bordered table-dark">
                 <thead>
                     <tr>
@@ -86,7 +86,7 @@
                         <td><input type="text" class="form-control input" v-model='user.phone'></td>
                         <td><input type="text" class="form-control input" v-model='user.email'></td>
                         <td>
-                            <button class="btn btn-outline-primary" @click='pageChange'>edit</button>
+                            <button class="btn btn-outline-info" @click='pageChange'>edit</button>
                             <button class="btn btn-outline-danger" @click='userDelete(index)'>delete</button>
                         </td>
                     </tr>

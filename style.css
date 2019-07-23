@@ -11,6 +11,12 @@ button {
     color: rgb(202, 196, 196);
     font-size: 2.5vmin;
     transition: background-color 350ms ease;
+    border: none;
+}
+
+.json_input_wrapper {
+    border: 0.1vmin solid gray;
+    border-radius: 0.5vmin;
 }
 
 .h1 {
@@ -20,14 +26,14 @@ button {
     padding-bottom: 1vh;
 }
 
-.mb-3 {
-    padding: 1vw;
-}
-
 .button_wrapper {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: center;
+    margin: 1vmin;
+}
+
+.button_wrapper button {
     margin: 1vmin;
 }
 
