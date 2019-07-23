@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="./vue.js"></script>
-    <link rel="stylesheet" href="./bootstrap-4.3.1-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script src="./vue.js"></script>
+        <link rel="stylesheet" href="./bootstrap-4.3.1-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./style.css">
+    </head>
 
-<body>
+    <body>
 
-    <div id="app">
+        <div id="app">
 
-        <template v-if='pageFlag'>
+            <template v-if='pageFlag'>
         <h1 class="h1 display-3">Users List</h1>
         <div class='button_wrapper'>
             <button class="btn btn-outline-success" @click='pageChange'>+add user</button>
@@ -48,7 +48,7 @@
         </table>
     </template>
 
-        <template v-else>
+            <template v-else>
         <h1 class="h1 display-3">Users Editor</h1>
         <button class="btn btn-outline-light showPage_btn" @click='pageChange'>page change</button>
         <div class="input-group mb-3">
@@ -93,8 +93,8 @@
                 </tbody>
             </table>
     </template>
-    </div>
-</body>
-<script src="./script.js"></script>
+        </div>
+    </body>
+    <script src="./script.js"></script>
 
 </html>

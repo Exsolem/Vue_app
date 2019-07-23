@@ -24,13 +24,10 @@ let app = new Vue({
         },
         pageChange() {
             this.pageFlag = !this.pageFlag;
-            console.log(localStorage.getItem('users'));
-            console.log(this.users);
         },
         addUser(e) {
             this.users = [].concat(this.newUser).concat(this.users);
             localStorage.setItem('users', JSON.stringify(this.users));
-            console.log(localStorage.getItem('users'));
 
         },
         editUser() {
@@ -38,7 +35,6 @@ let app = new Vue({
             localStorage.setItem('users', JSON.stringify(this.users));
         },
         JSONparse(){
-            console.log(this.JSONinput);
             let newJSON = JSON.parse(this.JSONinput);
             this.users = [].concat(newJSON).concat(this.users);
             localStorage.setItem('users', JSON.stringify(this.users));
