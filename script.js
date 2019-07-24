@@ -24,7 +24,6 @@ let app = new Vue({
         },
         pageChange() {
             this.pageFlag = !this.pageFlag;
-            console.log(localStorage.getItem('users'));
         },
         addUser(e) {
             if (this.newUser.name != '' && this.newUser.phone != '' && this.newUser.surname != '' && this.newUser.email != '') {
