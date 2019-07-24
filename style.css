@@ -16,8 +16,7 @@ button {
 }
 
 .json_input_wrapper {
-    border-bottom: 0.1vmin solid white;
-    border-top: 0.1vmin solid white;
+    border-bottom: 0.1vmin solid darkgrey;
 }
 
 .input:focus {

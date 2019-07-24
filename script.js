@@ -14,7 +14,7 @@ let app = new Vue({
         ],
         newUser: { name: '', surname: '', phone: '', email: '' },
         pageFlag: true,
-        JSONinput:''
+        JSONinput: ''
     },
     methods: {
         deleteUser(index) {
@@ -24,9 +24,10 @@ let app = new Vue({
         },
         pageChange() {
             this.pageFlag = !this.pageFlag;
+            console.log(localStorage.getItem('users'));
         },
         addUser(e) {
-            if(this.newUser.name != '' && this.newUser.phone != '' && this.newUser.surname != '' && this.newUser.email != ''){
+            if (this.newUser.name != '' && this.newUser.phone != '' && this.newUser.surname != '' && this.newUser.email != '') {
                 this.users = [].concat(this.newUser).concat(this.users);
                 localStorage.setItem('users', JSON.stringify(this.users));
             }
@@ -37,10 +38,13 @@ let app = new Vue({
             localStorage.setItem('users', JSON.stringify(this.users));
             alert('Data Changed')
         },
-        JSONparse(){
-            let newJSON = JSON.parse(this.JSONinput);
-            this.users = [].concat(JSON.parse(newJSON)).concat(this.users);
-            localStorage.setItem('users', JSON.stringify(this.users));
+        JSONparse() {
+            if (this.JSONinput.length > 0) {
+                let newJSON = JSON.parse(this.JSONinput);
+                this.users = [].concat(newJSON).concat(this.users);
+                localStorage.setItem('users', JSON.stringify(this.users));
+            }
+            else alert('JSON input field is empty');
         }
 
 
