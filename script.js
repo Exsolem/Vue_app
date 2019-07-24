@@ -17,7 +17,7 @@ let app = new Vue({
         JSONinput:''
     },
     methods: {
-        userDelete(index) {
+        deleteUser(index) {
             const userIndex = index;
             this.users = this.users.filter((elem, index) => index != userIndex);
             localStorage.setItem('users', JSON.stringify(this.users));
@@ -34,14 +34,15 @@ let app = new Vue({
 
         },
         editUser() {
-            this.users = [].concat(this.newUser).concat(this.users);
             localStorage.setItem('users', JSON.stringify(this.users));
+            alert('Data Changed')
         },
         JSONparse(){
             let newJSON = JSON.parse(this.JSONinput);
             this.users = [].concat(newJSON).concat(this.users);
             localStorage.setItem('users', JSON.stringify(this.users));
         }
+
 
     }
 })

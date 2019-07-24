@@ -19,7 +19,7 @@
         <h1 class="h1 display-3">Users List</h1>
         <div class='button_wrapper'>
             <button class="btn btn-outline-success" @click='pageChange'>+add user</button>
-            <button class="btn btn-outline-light" @click='pageChange'>page change</button>
+            <button class="btn btn-outline-light" @click='pageChange'>users editor</button>
         </div>
         <table class="table table-hover table-bordered table-dark">
             <thead>
@@ -29,7 +29,7 @@
                     <th scope="col">Surname</th>
                     <th scope="col">Phone</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Instruments</th>
+                    <th scope="col">Tools</th>
                 </tr>
             </thead>
             <tbody v-for='(user,index) in users'>
@@ -50,9 +50,9 @@
 
             <template v-else>
         <h1 class="h1 display-3">Users Editor</h1>
-        <button class="btn btn-outline-light showPage_btn" @click='pageChange'>page change</button>
+        <button class="btn btn-outline-light showPage_btn" @click='pageChange'>users list</button>
         <div class="input-group mb-3 json_input_wrapper">
-                <input type="text" v-model='JSONinput' class="form-control input" placeholder="JSON input" />
+                <input type="text" v-model='SONinput' class="form-control input" placeholder="JSON input" />
                 <div class="input-group-append">
                   <button class="btn btn-outline-light" type="button" @click='JSONparse'>parse</button>
                 </div>
@@ -65,7 +65,7 @@
                         <th scope="col">Surname</th>
                         <th scope="col">Phone</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Instruments</th>
+                        <th scope="col">Tools</th>
                     </tr>
                 </thead>
                 <tbody >
@@ -86,8 +86,8 @@
                         <td><input type="text" class="form-control input" v-model='user.phone'></td>
                         <td><input type="text" class="form-control input" v-model='user.email'></td>
                         <td>
-                            <button class="btn btn-outline-info" @click='pageChange'>edit</button>
-                            <button class="btn btn-outline-danger" @click='userDelete(index)'>delete</button>
+                            <button class="btn btn-outline-info" @click='editUser'>edit</button>
+                            <button class="btn btn-outline-danger" @click='deleteUser(index)'>delete</button>
                         </td>
                     </tr>
                 </tbody>
