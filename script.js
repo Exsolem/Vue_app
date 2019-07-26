@@ -28,7 +28,7 @@ let app = new Vue({
             this.pageFlag = !this.pageFlag;
         },
         addUser(e) {
-            if (this.newUser.name != '' && this.newUser.phone != '' && this.newUser.surname != '' && this.newUser.email != '') {
+            if (this.newUser.name && this.newUser.phone && this.newUser.surname && this.newUser.email) {
                 this.users = [].concat(this.newUser).concat(this.users);
                 localStorage.setItem('users', JSON.stringify(this.users));
                 this.newUser = { name: '', surname: '', phone: '', email: '' };
