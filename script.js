@@ -13,7 +13,7 @@ const users = [
 let app = new Vue({
     el: '#app',
     data: {
-        users: (JSON.parse(localStorage.getItem('users')) ? JSON.parse(localStorage.getItem('users')) : users),
+        users: (JSON.parse(localStorage.getItem('users')) != ''? JSON.parse(localStorage.getItem('users')) : users),
         newUser: { name: '', surname: '', phone: '', email: '' },
         pageFlag: true,
         JSONinput: ''
