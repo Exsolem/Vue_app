@@ -10,7 +10,7 @@ const users = [
 ];
     
 
-let app = new Vue({
+const app = new Vue({
     el: '#app',
     data: {
         users: (JSON.parse(localStorage.getItem('users')) != ''? JSON.parse(localStorage.getItem('users')) : users),
@@ -26,7 +26,6 @@ let app = new Vue({
         },
         pageChange() {
             this.pageFlag = !this.pageFlag;
-            console.log(localStorage.getItem('users'));
         },
         addUser(e) {
             if (this.newUser.name && this.newUser.phone && this.newUser.surname && this.newUser.email) {
