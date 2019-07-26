@@ -13,7 +13,7 @@ const users = [
 let app = new Vue({
     el: '#app',
     data: {
-        users: (JSON.parse(localStorage.getItem('users')) != '' ? JSON.parse(localStorage.getItem('users')) : users),
+        users: (JSON.parse(localStorage.getItem('users')) ? JSON.parse(localStorage.getItem('users')) : users),
         newUser: { name: '', surname: '', phone: '', email: '' },
         pageFlag: true,
         JSONinput: ''
@@ -26,6 +26,7 @@ let app = new Vue({
         },
         pageChange() {
             this.pageFlag = !this.pageFlag;
+            console.log(localStorage.getItem('users'));
         },
         addUser(e) {
             if (this.newUser.name && this.newUser.phone && this.newUser.surname && this.newUser.email) {
@@ -41,12 +42,14 @@ let app = new Vue({
             alert('Data Changed')
         },
         JSONparse() {
-            if (this.JSONinput.length > 0) {
+            const regexp = new RegExp('\[\{.*\:\{.*\:.*\}\}\]','g');
+
+            if (regexp.test(this.JSONinput)) {
                 let newJSON = JSON.parse(this.JSONinput);
                 this.users = [].concat(newJSON).concat(this.users);
                 localStorage.setItem('users', JSON.stringify(this.users));
             }
-            else alert('JSON input field is empty');
+            else alert('It`s not a JSON object');
         }
 
 
